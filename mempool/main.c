@@ -1,7 +1,6 @@
 #include "mempool.h"
 #include <stdlib.h>
 #include <time.h> 
-#include  <apr_allocator.h>
 
 
 #ifdef MEM_POOL 
@@ -31,7 +30,7 @@ int main()
 		size = 31;
 		for (int i = 0; i < 128; i++)
 		{
-			//size += 1;
+			size += 1;
 			ptr_arr_32[i] = MALLOC(size);
 		}
 
@@ -39,17 +38,6 @@ int main()
 		{
 			FREE(ptr_arr_32[i]);
 		}
-		/*
-		for (int i = 0; i < 1000; i++)
-		{
-			ptr_arr_special[i] = MALLOC(32 * 10000);
-		}
-
-		for (int i = 0; i < 1000; i++)
-		{
-			FREE(ptr_arr_special[i]);
-		}
-		*/
 	}
 	
 	//destroy_mgr(&st_pool_mgr);

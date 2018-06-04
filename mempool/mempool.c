@@ -1,4 +1,4 @@
-#include "mempool.h"
+﻿#include "mempool.h"
 
 //根据申请的内存大小选取 unit_pool ,返回NULL时则无可用 unit_pool
 static inline unit_pool* _get_uint_pool(pool_mgr* p_st_pool_mgr,unsigned int mem_size);
@@ -13,6 +13,8 @@ static inline int  _expand_unit_pool(unit_pool *p_ut_pool,int mem_cnt);
 static inline void *_get_unit_mem(unit_pool *p_ut_pool);
 
 static inline void* _special_get_mem(unit_pool *p_ut_pool,unsigned int nsize);
+
+static inline int  _init_unit_pool(unit_pool *p_ut_pool,unsigned short  unit_type);
 
 static inline  void  unit_pool_free(void *object,void *p_data)
 {
@@ -57,7 +59,7 @@ static void* specal_malloc(void *object , unsigned int size)
     dlist_add(&(p_ut_pool->dl_special),p_dnode);
     return  p_dnode->p_data;
 }
-//static int  _init_unit_pool(unit_pool *p_ut_pool,uint_param *p_unit_param);
+
 
 
 static int _init_unit_pool(unit_pool *p_ut_pool,unsigned short  unit_type)

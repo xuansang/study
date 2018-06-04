@@ -12,8 +12,8 @@ EXECUTABLE := mempool
   
 # 修改隐含规则中宏
 CC := gcc
-CFLAGS := -o2 -DMEMPOOL -I /usr/bin/apr/include/apr-1
-LDFLAGS+= -L/usr/bin/apr/lib -lapr-1 
+CFLAGS :=-O2 -DMEMPOOL 
+LDFLAGS+= 
 #LDFLAGS+= -lftd2xx 
   
 # 列出工作目录下所有以“.c”结尾的文件，以空格分隔，将文件列表赋给变量SOURCE
